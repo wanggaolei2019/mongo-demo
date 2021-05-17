@@ -1,12 +1,12 @@
 package com.github.wanggaolei2019.mongodemo.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.github.wanggaolei2019.mongodemo.dto.ModuleDTO;
-import org.bson.types.ObjectId;
-import org.springframework.data.annotation.*;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.annotation.Version;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.xml.crypto.Data;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -27,8 +27,6 @@ public class MetadataCollection implements Serializable {
     
     private String describe;
     
-    private Long version;
-    
     private String status;
     
     private List<ModuleDTO> moduleList;
@@ -42,6 +40,9 @@ public class MetadataCollection implements Serializable {
     
     @LastModifiedDate
     private Date updateTime;
+    
+    @Version
+    private Long modifiedVersion;
     
     public String get_id() {
         return _id;
@@ -65,14 +66,6 @@ public class MetadataCollection implements Serializable {
     
     public void setDescribe(String describe) {
         this.describe = describe;
-    }
-    
-    public Long getVersion() {
-        return version;
-    }
-    
-    public void setVersion(Long version) {
-        this.version = version;
     }
     
     public String getStatus() {
@@ -123,19 +116,27 @@ public class MetadataCollection implements Serializable {
         this.updateTime = updateTime;
     }
     
+    public Long getModifiedVersion() {
+        return modifiedVersion;
+    }
+    
+    public void setModifiedVersion(Long modifiedVersion) {
+        this.modifiedVersion = modifiedVersion;
+    }
+    
     @Override
     public String toString() {
         return new StringJoiner(", ", MetadataCollection.class.getSimpleName() + "[", "]")
                 .add("_id='" + _id + "'")
                 .add("name='" + name + "'")
                 .add("describe='" + describe + "'")
-                .add("version=" + version)
                 .add("status='" + status + "'")
                 .add("moduleList=" + moduleList)
                 .add("createBy='" + createBy + "'")
                 .add("updateBy='" + updateBy + "'")
                 .add("createTime=" + createTime)
                 .add("updateTime=" + updateTime)
+                .add("modifiedVersion=" + modifiedVersion)
                 .toString();
     }
 }

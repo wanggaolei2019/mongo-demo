@@ -7,7 +7,6 @@ import cn.hutool.json.JSONUtil;
 import com.github.wanggaolei2019.mongodemo.entity.MetadataCollection;
 import com.github.wanggaolei2019.mongodemo.repository.MetadataCollectionRepository;
 import org.bson.Document;
-import org.bson.types.ObjectId;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Page;
@@ -15,12 +14,10 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
-import org.springframework.data.mongodb.core.query.CriteriaDefinition;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 
 import javax.annotation.Resource;
-import java.util.Date;
 import java.util.List;
 
 @SpringBootTest
@@ -44,7 +41,6 @@ class MongoDemoApplicationTests {
         metadataCollection.setName("保单信息");
         metadataCollection.setDescribe("保单大对象元数据集合");
         metadataCollection.setCreateBy("wanggl");
-        metadataCollection.setVersion(1L);
         metadataCollectionRepository.save(metadataCollection);
         System.out.println("保存成功：" + JSONUtil.toJsonPrettyStr(metadataCollection));
     }
@@ -56,7 +52,6 @@ class MongoDemoApplicationTests {
         metadataCollection.setName("保单信息");
         metadataCollection.setDescribe("保单大对象元数据集合");
         metadataCollection.setCreateBy("wanggl");
-        metadataCollection.setVersion(1L);
         mongoTemplate.save(metadataCollection);
         System.out.println("保存成功：" + JSONUtil.toJsonPrettyStr(metadataCollection));
     }
@@ -66,7 +61,6 @@ class MongoDemoApplicationTests {
         // mongoTemplate 与 Document
         String str = "{\n" +
                 "    \"modifiedVersion\": 0,\n" +
-                "    \"version\": 1,\n" +
                 "    \"createBy\": \"wanggl\",\n" +
                 "    \"name\": \"保单信息\",\n" +
                 "    \"describe\": \"保单大对象元数据集合\"\n" +

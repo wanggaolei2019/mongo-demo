@@ -9,7 +9,6 @@ import com.github.wanggaolei2019.mongodemo.entity.QMetadataTemplate;
 import com.github.wanggaolei2019.mongodemo.repository.MetadataTemplateRepository;
 import com.querydsl.core.types.ExpressionUtils;
 import com.querydsl.core.types.Predicate;
-import com.querydsl.core.types.dsl.BooleanExpression;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -46,7 +45,6 @@ public class MetadataTemplateServiceImpl implements MetadataTemplateService{
     public PageResp<MetadataTemplate> page(PageReq<MetadataQuery> pageReq) {
         QMetadataTemplate qMetadataTemplate = QMetadataTemplate.metadataTemplate;
         MetadataQuery metadataQuery = pageReq.getParams();
-    
         Predicate predicate = qMetadataTemplate._id.isNotNull();
     
         predicate = StringUtils.isEmpty(metadataQuery.getLabel()) ? predicate :
