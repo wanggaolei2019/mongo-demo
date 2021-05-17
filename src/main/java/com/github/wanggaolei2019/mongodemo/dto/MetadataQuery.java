@@ -1,5 +1,7 @@
 package com.github.wanggaolei2019.mongodemo.dto;
 
+import io.swagger.annotations.ApiModel;
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.StringJoiner;
@@ -8,6 +10,7 @@ import java.util.StringJoiner;
  * @author wanggl
  * @since 2021-05-16
  */
+@ApiModel("元数据样板查询参数")
 public class MetadataQuery implements Serializable {
     
     private static final long serialVersionUID = 5254660050291725375L;

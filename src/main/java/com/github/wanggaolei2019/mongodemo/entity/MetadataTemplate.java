@@ -1,5 +1,6 @@
 package com.github.wanggaolei2019.mongodemo.entity;
 
+import io.swagger.annotations.ApiModel;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -14,6 +15,7 @@ import java.util.StringJoiner;
  * @since 2021-05-16
  */
 @Document(collection = "metadata_template")
+@ApiModel("元数据样板")
 public class MetadataTemplate implements Serializable {
     private static final long serialVersionUID = 3608053396235029445L;
     

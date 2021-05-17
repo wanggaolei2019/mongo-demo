@@ -1,5 +1,7 @@
 package com.github.wanggaolei2019.mongodemo.dto;
 
+import io.swagger.annotations.ApiModel;
+
 import java.io.Serializable;
 import java.util.List;
 import java.util.StringJoiner;
@@ -8,6 +10,7 @@ import java.util.StringJoiner;
  * @author wanggl
  * @since 2021-05-16
  */
+@ApiModel("元数据模块信息")
 public class ModuleDTO implements Serializable {
     private static final long serialVersionUID = 8586625556124847920L;
     
