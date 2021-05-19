@@ -13,7 +13,7 @@ import java.util.StringJoiner;
 public class MetadataDTO implements Serializable {
     private static final long serialVersionUID = 2936831878242497909L;
     
-    private String label;
+    private String code;
     
     private String name;
     
@@ -33,12 +33,12 @@ public class MetadataDTO implements Serializable {
     
     private String display;
     
-    public String getLabel() {
-        return label;
+    public String getCode() {
+        return code;
     }
     
-    public void setLabel(String label) {
-        this.label = label;
+    public void setCode(String code) {
+        this.code = code;
     }
     
     public String getName() {
@@ -116,7 +116,7 @@ public class MetadataDTO implements Serializable {
     @Override
     public String toString() {
         return new StringJoiner(", ", MetadataDTO.class.getSimpleName() + "[", "]")
-                .add("label='" + label + "'")
+                .add("code='" + code + "'")
                 .add("name='" + name + "'")
                 .add("type='" + type + "'")
                 .add("seqNo=" + seqNo)

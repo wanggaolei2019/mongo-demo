@@ -42,14 +42,14 @@ public class DataSyncServiceImpl implements DataSyncService {
         
         // 并行保存
         documents.parallelStream().forEach(document -> {
-            String label = document.getString("label");
+            String code = document.getString("code");
             
             // 原子更新或插入
             // 更新表达式
             Update documentUpdate = Update.fromDocument(document);
             // 查询表达式
             Query query = Query.query(this.createCriteriaByDocument(document));
-            mongoTemplate.upsert(query, documentUpdate, label);
+            mongoTemplate.upsert(query, documentUpdate, code);
         });
     }
     

@@ -47,8 +47,8 @@ public class MetadataTemplateServiceImpl implements MetadataTemplateService{
         MetadataQuery metadataQuery = pageReq.getParams();
         Predicate predicate = qMetadataTemplate._id.isNotNull();
     
-        predicate = StringUtils.isEmpty(metadataQuery.getLabel()) ? predicate :
-                ExpressionUtils.and(predicate, qMetadataTemplate.label.like("%"+metadataQuery.getLabel()+"%"));
+        predicate = StringUtils.isEmpty(metadataQuery.getCode()) ? predicate :
+                ExpressionUtils.and(predicate, qMetadataTemplate.code.like("%" + metadataQuery.getCode() + "%"));
         predicate = StringUtils.isEmpty(metadataQuery.getName()) ? predicate :
                 ExpressionUtils.and(predicate, qMetadataTemplate.name.like("%" + metadataQuery.getName() + "%"));
         predicate = StringUtils.isEmpty(metadataQuery.getType()) ? predicate :
@@ -91,8 +91,8 @@ public class MetadataTemplateServiceImpl implements MetadataTemplateService{
     public PageResp<MetadataTemplate> page2(PageReq<MetadataQuery> pageReq) {
         MetadataQuery metadataQuery = pageReq.getParams();
         Criteria criteria = new Criteria();
-        if (StringUtils.isNotEmpty(metadataQuery.getLabel())) {
-            criteria.and("label").regex("^.*" + metadataQuery.getLabel() + ".*$");
+        if (StringUtils.isNotEmpty(metadataQuery.getCode())) {
+            criteria.and("code").regex("^.*" + metadataQuery.getCode() + ".*$");
         }
         if (StringUtils.isNotEmpty(metadataQuery.getName())) {
             criteria.and("name").regex("^.*" + metadataQuery.getName() + ".*$");

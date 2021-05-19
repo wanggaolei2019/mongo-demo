@@ -22,7 +22,7 @@ public class MetadataTemplate implements Serializable {
     @Id
     String _id;
     
-    private String label;
+    private String code;
     
     private String name;
     
@@ -62,12 +62,12 @@ public class MetadataTemplate implements Serializable {
         this._id = _id;
     }
     
-    public String getLabel() {
-        return label;
+    public String getCode() {
+        return code;
     }
     
-    public void setLabel(String label) {
-        this.label = label;
+    public void setCode(String code) {
+        this.code = code;
     }
     
     public String getName() {
@@ -186,7 +186,7 @@ public class MetadataTemplate implements Serializable {
     public String toString() {
         return new StringJoiner(", ", MetadataTemplate.class.getSimpleName() + "[", "]")
                 .add("_id='" + _id + "'")
-                .add("label='" + label + "'")
+                .add("code='" + code + "'")
                 .add("name='" + name + "'")
                 .add("type='" + type + "'")
                 .add("seqNo=" + seqNo)

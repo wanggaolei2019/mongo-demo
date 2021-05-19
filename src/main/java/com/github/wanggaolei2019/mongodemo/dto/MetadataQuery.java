@@ -15,7 +15,7 @@ public class MetadataQuery implements Serializable {
     
     private static final long serialVersionUID = 5254660050291725375L;
     
-    private String label;
+    private String code;
     
     private String name;
     
@@ -39,12 +39,12 @@ public class MetadataQuery implements Serializable {
     
     private Date createTimeEnd;
     
-    public String getLabel() {
-        return label;
+    public String getCode() {
+        return code;
     }
     
-    public void setLabel(String label) {
-        this.label = label;
+    public void setCode(String code) {
+        this.code = code;
     }
     
     public String getName() {
@@ -138,7 +138,7 @@ public class MetadataQuery implements Serializable {
     @Override
     public String toString() {
         return new StringJoiner(", ", MetadataQuery.class.getSimpleName() + "[", "]")
-                .add("label='" + label + "'")
+                .add("code='" + code + "'")
                 .add("name='" + name + "'")
                 .add("type='" + type + "'")
                 .add("module='" + module + "'")

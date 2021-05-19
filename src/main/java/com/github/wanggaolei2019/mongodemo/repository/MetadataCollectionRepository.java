@@ -11,10 +11,10 @@ import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 public interface MetadataCollectionRepository extends MongoRepository<MetadataCollection, String>
         , QuerydslPredicateExecutor<MetadataCollection> {
     /**
-     * 根据label查询
+     * 根据code查询
      *
-     * @param label label
+     * @param code code
      * @return Boolean
      */
-    Boolean existsByLabel(String label);
+    Boolean existsByCode(String code);
 }

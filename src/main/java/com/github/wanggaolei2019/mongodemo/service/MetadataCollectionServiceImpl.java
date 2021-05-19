@@ -81,13 +81,13 @@ public class MetadataCollectionServiceImpl implements MetadataCollectionService 
     @Override
     public void save(MetadataCollection metadataCollection) throws BusinessException {
         if (StringUtils.isEmpty(metadataCollection.get_id())) {
-            if (StringUtils.isNotEmpty(metadataCollection.getLabel())) {
-                Boolean exists = metadataCollectionRepository.existsByLabel(metadataCollection.getLabel());
+            if (StringUtils.isNotEmpty(metadataCollection.getCode())) {
+                Boolean exists = metadataCollectionRepository.existsByCode(metadataCollection.getCode());
                 if (exists) {
-                    throw BusinessException.of("数据集label不能重复");
+                    throw BusinessException.of("数据集code不能重复");
                 }
             } else {
-                throw BusinessException.of("数据集label不能为空");
+                throw BusinessException.of("数据集code不能为空");
             }
             metadataCollection.setModifiedVersion(null);
         }
