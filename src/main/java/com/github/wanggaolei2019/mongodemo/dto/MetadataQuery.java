@@ -25,9 +25,9 @@ public class MetadataQuery implements Serializable {
     
     private String inputRequired;
     
-    private String queryRequired;
-    
     private String disabled;
+    
+    private String display;
     
     private String status;
     
@@ -79,20 +79,20 @@ public class MetadataQuery implements Serializable {
         this.inputRequired = inputRequired;
     }
     
-    public String getQueryRequired() {
-        return queryRequired;
-    }
-    
-    public void setQueryRequired(String queryRequired) {
-        this.queryRequired = queryRequired;
-    }
-    
     public String getDisabled() {
         return disabled;
     }
     
     public void setDisabled(String disabled) {
         this.disabled = disabled;
+    }
+    
+    public String getDisplay() {
+        return display;
+    }
+    
+    public void setDisplay(String display) {
+        this.display = display;
     }
     
     public String getStatus() {
@@ -143,13 +143,13 @@ public class MetadataQuery implements Serializable {
                 .add("type='" + type + "'")
                 .add("module='" + module + "'")
                 .add("inputRequired='" + inputRequired + "'")
-                .add("queryRequired='" + queryRequired + "'")
                 .add("disabled='" + disabled + "'")
+                .add("display='" + display + "'")
                 .add("status='" + status + "'")
                 .add("createBy='" + createBy + "'")
                 .add("updateBy='" + updateBy + "'")
-                .add("createTime=" + createTimeStart)
-                .add("updateTime=" + createTimeEnd)
+                .add("createTimeStart=" + createTimeStart)
+                .add("createTimeEnd=" + createTimeEnd)
                 .toString();
     }
 }

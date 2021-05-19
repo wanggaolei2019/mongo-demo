@@ -20,6 +20,8 @@ public class ModuleDTO implements Serializable {
     
     private String type;
     
+    private Integer seqNo;
+    
     List<MetadataDTO> metadataList;
     
     public String getLabel() {
@@ -46,6 +48,14 @@ public class ModuleDTO implements Serializable {
         this.type = type;
     }
     
+    public Integer getSeqNo() {
+        return seqNo;
+    }
+    
+    public void setSeqNo(Integer seqNo) {
+        this.seqNo = seqNo;
+    }
+    
     public List<MetadataDTO> getMetadataList() {
         return metadataList;
     }
@@ -60,6 +70,7 @@ public class ModuleDTO implements Serializable {
                 .add("label='" + label + "'")
                 .add("name='" + name + "'")
                 .add("type='" + type + "'")
+                .add("seqNo=" + seqNo)
                 .add("metadataList=" + metadataList)
                 .toString();
     }

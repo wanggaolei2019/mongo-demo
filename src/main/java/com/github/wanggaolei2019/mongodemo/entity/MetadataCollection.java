@@ -25,6 +25,10 @@ public class MetadataCollection implements Serializable {
     @Id
     private String _id;
     
+    private List<String> dataPrimaryKeys;
+    
+    private String label;
+    
     private String name;
     
     private String describe;
@@ -52,6 +56,22 @@ public class MetadataCollection implements Serializable {
     
     public void set_id(String _id) {
         this._id = _id;
+    }
+    
+    public List<String> getDataPrimaryKeys() {
+        return dataPrimaryKeys;
+    }
+    
+    public void setDataPrimaryKeys(List<String> dataPrimaryKeys) {
+        this.dataPrimaryKeys = dataPrimaryKeys;
+    }
+    
+    public String getLabel() {
+        return label;
+    }
+    
+    public void setLabel(String label) {
+        this.label = label;
     }
     
     public String getName() {
@@ -130,6 +150,8 @@ public class MetadataCollection implements Serializable {
     public String toString() {
         return new StringJoiner(", ", MetadataCollection.class.getSimpleName() + "[", "]")
                 .add("_id='" + _id + "'")
+                .add("dataPrimaryKeys=" + dataPrimaryKeys)
+                .add("label='" + label + "'")
                 .add("name='" + name + "'")
                 .add("describe='" + describe + "'")
                 .add("status='" + status + "'")

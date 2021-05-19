@@ -119,12 +119,16 @@ class MongoDemoApplicationTests {
                         Update update = Update.update("describe", RandomUtil.randomString(6));
                         Query query = Query.query(Criteria.where("_id").is(data.getString("_id")));
                         mongoTemplate.updateFirst(query, update, "metadata_collection");
-                        
+            
                         Document document = mongoTemplate.findOne(query, Document.class, "metadata_collection");
                         System.out.println("更新成功：" + JSONUtil.toJsonPrettyStr(document));
                     }
             );
         }
+    }
+    
+    @Test
+    void test4() {
     }
     
 }

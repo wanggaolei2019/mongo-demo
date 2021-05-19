@@ -24,7 +24,7 @@ public interface MetadataCollectionService {
      *
      * @param metadataCollection 源数据集合
      */
-    void save(MetadataCollection metadataCollection);
+    void save(MetadataCollection metadataCollection) throws BusinessException;
     
     /**
      * findById

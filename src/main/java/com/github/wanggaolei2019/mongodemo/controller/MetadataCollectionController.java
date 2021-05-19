@@ -46,7 +46,7 @@ public class MetadataCollectionController {
     @ApiOperation(value = "3:新增或更新")
     @ApiOperationSupport(order = 3)
     @PostMapping("save")
-    ApiResp<Object> save(@RequestBody MetadataCollection metadataCollection) {
+    ApiResp<Object> save(@RequestBody MetadataCollection metadataCollection) throws BusinessException {
         metadataCollectionService.save(metadataCollection);
         return ApiResp.ofSuccess("保存成功");
     }

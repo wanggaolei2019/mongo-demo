@@ -19,27 +19,19 @@ public class MetadataDTO implements Serializable {
     
     private String type;
     
+    private Integer seqNo;
+    
     private String compareType;
     
     private String module;
     
     private String inputRequired;
     
-    private String queryRequired;
-    
     private String inputDefault;
-    
-    private String queryDefault;
     
     private String disabled;
     
-    public String getCompareType() {
-        return compareType;
-    }
-    
-    public void setCompareType(String compareType) {
-        this.compareType = compareType;
-    }
+    private String display;
     
     public String getLabel() {
         return label;
@@ -65,6 +57,22 @@ public class MetadataDTO implements Serializable {
         this.type = type;
     }
     
+    public Integer getSeqNo() {
+        return seqNo;
+    }
+    
+    public void setSeqNo(Integer seqNo) {
+        this.seqNo = seqNo;
+    }
+    
+    public String getCompareType() {
+        return compareType;
+    }
+    
+    public void setCompareType(String compareType) {
+        this.compareType = compareType;
+    }
+    
     public String getModule() {
         return module;
     }
@@ -81,28 +89,12 @@ public class MetadataDTO implements Serializable {
         this.inputRequired = inputRequired;
     }
     
-    public String getQueryRequired() {
-        return queryRequired;
-    }
-    
-    public void setQueryRequired(String queryRequired) {
-        this.queryRequired = queryRequired;
-    }
-    
     public String getInputDefault() {
         return inputDefault;
     }
     
     public void setInputDefault(String inputDefault) {
         this.inputDefault = inputDefault;
-    }
-    
-    public String getQueryDefault() {
-        return queryDefault;
-    }
-    
-    public void setQueryDefault(String queryDefault) {
-        this.queryDefault = queryDefault;
     }
     
     public String getDisabled() {
@@ -113,19 +105,27 @@ public class MetadataDTO implements Serializable {
         this.disabled = disabled;
     }
     
+    public String getDisplay() {
+        return display;
+    }
+    
+    public void setDisplay(String display) {
+        this.display = display;
+    }
+    
     @Override
     public String toString() {
         return new StringJoiner(", ", MetadataDTO.class.getSimpleName() + "[", "]")
                 .add("label='" + label + "'")
                 .add("name='" + name + "'")
                 .add("type='" + type + "'")
+                .add("seqNo=" + seqNo)
                 .add("compareType='" + compareType + "'")
                 .add("module='" + module + "'")
                 .add("inputRequired='" + inputRequired + "'")
-                .add("queryRequired='" + queryRequired + "'")
                 .add("inputDefault='" + inputDefault + "'")
-                .add("queryDefault='" + queryDefault + "'")
                 .add("disabled='" + disabled + "'")
+                .add("display='" + display + "'")
                 .toString();
     }
 }

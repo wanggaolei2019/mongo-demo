@@ -50,27 +50,27 @@ public class MetadataTemplateServiceImpl implements MetadataTemplateService{
         predicate = StringUtils.isEmpty(metadataQuery.getLabel()) ? predicate :
                 ExpressionUtils.and(predicate, qMetadataTemplate.label.like("%"+metadataQuery.getLabel()+"%"));
         predicate = StringUtils.isEmpty(metadataQuery.getName()) ? predicate :
-                ExpressionUtils.and(predicate,qMetadataTemplate.name.like("%"+metadataQuery.getName()+"%"));
+                ExpressionUtils.and(predicate, qMetadataTemplate.name.like("%" + metadataQuery.getName() + "%"));
         predicate = StringUtils.isEmpty(metadataQuery.getType()) ? predicate :
-                ExpressionUtils.and(predicate,qMetadataTemplate.type.eq(metadataQuery.getType()));
+                ExpressionUtils.and(predicate, qMetadataTemplate.type.eq(metadataQuery.getType()));
         predicate = StringUtils.isEmpty(metadataQuery.getModule()) ? predicate :
-                ExpressionUtils.and(predicate,qMetadataTemplate.module.eq(metadataQuery.getModule()));
+                ExpressionUtils.and(predicate, qMetadataTemplate.module.eq(metadataQuery.getModule()));
         predicate = StringUtils.isEmpty(metadataQuery.getInputRequired()) ? predicate :
-                ExpressionUtils.and(predicate,qMetadataTemplate.inputRequired.eq(metadataQuery.getInputRequired()));
-        predicate = StringUtils.isEmpty(metadataQuery.getQueryRequired()) ? predicate :
-                ExpressionUtils.and(predicate,qMetadataTemplate.queryRequired.eq(metadataQuery.getQueryRequired()));
+                ExpressionUtils.and(predicate, qMetadataTemplate.inputRequired.eq(metadataQuery.getInputRequired()));
         predicate = StringUtils.isEmpty(metadataQuery.getDisabled()) ? predicate :
-                ExpressionUtils.and(predicate,qMetadataTemplate.disabled.eq(metadataQuery.getDisabled()));
+                ExpressionUtils.and(predicate, qMetadataTemplate.disabled.eq(metadataQuery.getDisabled()));
+        predicate = StringUtils.isEmpty(metadataQuery.getDisplay()) ? predicate :
+                ExpressionUtils.and(predicate, qMetadataTemplate.display.eq(metadataQuery.getDisplay()));
         predicate = StringUtils.isEmpty(metadataQuery.getStatus()) ? predicate :
-                ExpressionUtils.and(predicate,qMetadataTemplate.status.eq(metadataQuery.getStatus()));
+                ExpressionUtils.and(predicate, qMetadataTemplate.status.eq(metadataQuery.getStatus()));
         predicate = StringUtils.isEmpty(metadataQuery.getCreateBy()) ? predicate :
-                ExpressionUtils.and(predicate,qMetadataTemplate.createBy.like("%"+metadataQuery.getCreateBy()+"%"));
+                ExpressionUtils.and(predicate, qMetadataTemplate.createBy.like("%" + metadataQuery.getCreateBy() + "%"));
         predicate = StringUtils.isEmpty(metadataQuery.getUpdateBy()) ? predicate :
-                ExpressionUtils.and(predicate,qMetadataTemplate.updateBy.like("%"+metadataQuery.getUpdateBy()+"%"));
+                ExpressionUtils.and(predicate, qMetadataTemplate.updateBy.like("%" + metadataQuery.getUpdateBy() + "%"));
         predicate = null == metadataQuery.getCreateTimeStart() ? predicate :
-                ExpressionUtils.and(predicate,qMetadataTemplate.createTime.goe(metadataQuery.getCreateTimeStart()));
+                ExpressionUtils.and(predicate, qMetadataTemplate.createTime.goe(metadataQuery.getCreateTimeStart()));
         predicate = null == metadataQuery.getCreateTimeEnd() ? predicate :
-                ExpressionUtils.and(predicate,qMetadataTemplate.createTime.loe(metadataQuery.getCreateTimeEnd()));
+                ExpressionUtils.and(predicate, qMetadataTemplate.createTime.loe(metadataQuery.getCreateTimeEnd()));
         
         long count = metadataTemplateRepository.count(predicate);
         if (count <= 0) {
@@ -106,11 +106,11 @@ public class MetadataTemplateServiceImpl implements MetadataTemplateService{
         if (StringUtils.isNotEmpty(metadataQuery.getInputRequired())) {
             criteria.and("inputRequired").is(metadataQuery.getInputRequired());
         }
-        if (StringUtils.isNotEmpty(metadataQuery.getQueryRequired())) {
-            criteria.and("queryRequired").is(metadataQuery.getQueryRequired());
-        }
         if (StringUtils.isNotEmpty(metadataQuery.getDisabled())) {
             criteria.and("disabled").is(metadataQuery.getDisabled());
+        }
+        if (StringUtils.isNotEmpty(metadataQuery.getDisplay())) {
+            criteria.and("display").is(metadataQuery.getDisplay());
         }
         if (StringUtils.isNotEmpty(metadataQuery.getStatus())) {
             criteria.and("status").is(metadataQuery.getStatus());
